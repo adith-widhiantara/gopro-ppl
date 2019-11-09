@@ -1,5 +1,5 @@
 body{
-  height: 10000px;
+  height: 500px;
 }
 
 .navbar-fixed {
@@ -20,9 +20,13 @@ body{
 }
 
 .navnav.solid {
-  background-color: #47cc1f;
+  background-color: #4caf50;
   transition: background-color 1s ease 0s;
   box-shadow: 0 0 4px grey;
+}
+
+.navnav .brand-logo{
+  font-family: 'Lora', serif;
 }
 
 .hr{
@@ -78,7 +82,6 @@ body{
 }
 
 .bantupetani{
-  /* background-color: #333333; */
   transform: translateY(-65%);
 }
 
@@ -113,15 +116,61 @@ body{
 }
 
 .warnacard{
-  margin-top: 30%;
+  margin-top: 10%;
   background-color: transparent;
-  transition: background-color 1s ease 0s;
-  -webkit-box-shadow:none !important;
-  box-shadow:none !important;
+  box-shadow:none;
 }
 
 .warnacard .card-title{
-  font-size: 50px;
+  font-size: 40px;
   color: #000000;
   font-weight: bold;
+  font-family: 'Arvo', serif;
+}
+
+.fa-user-circle-o{
+  margin-top: 5px;
+  font-size: 50px;
+  float: right;
+}
+
+.review{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.review .a{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.review .c{
+  text-align: justify;
+}
+
+.warnacard .row a{
+  margin-top: 5%;
+}
+
+.mengapagopro{
+  transform: translateY(-250px);
+}
+
+.mengapagopro .a{
+  font-size: 40px;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.mengapagopro .b{
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+
+.mengapagopro img{
+  margin-right: 100px;
+  height: 500px;
+  float: right;
+}
+
+.page-footer .container{
+  text-align: center;
 }

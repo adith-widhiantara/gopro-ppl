@@ -13,6 +13,11 @@
 
       <title>@yield('title')</title>
 
+      <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+
     </head>
 
     <body>

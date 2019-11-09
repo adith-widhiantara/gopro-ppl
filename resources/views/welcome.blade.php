@@ -122,12 +122,22 @@
       <div class="col s4 offset-s2">
         <img src="{{ asset('img/petani.jpg') }}" alt="">
       </div>
-      <div class="col s4">
+      <div class="col s6">
         <div class="card warnacard">
-          <div class="card-content white-text">
+          <div class="card-content">
             <span class="card-title">Kisah Sukses</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+            <div class="row">
+              <div class="col s2">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              </div>
+              <div class="col s5 review">
+                <p class="a">Pak Baskara</p>
+                <p>Petani Buah Naga</p>
+                <br>
+                <p class="c">Mendengar kata "Raja Buah Naga" mungkin yang terlintas dipikiran teman GoPro adalah petani buah naga yang sukses.</p>
+              </div>
+              <a class="waves-effect waves-light btn green">Lanjutkan Membaca</a>
+            </div>
           </div>
       </div>
       </div>
@@ -136,6 +146,31 @@
 </div>
 <!-- End Kisah Sukses -->
 
+<!-- Mengapa gopro -->
+<footer class="container mengapagopro">
+  <div class="row">
+    <div class="col s6">
+      <p class="a">Mengapa GOPRO?</p>
+      <p class="b">Aman dan Transparan</p>
+      <p class="b">Berinvestasi dapat dilakukan kapanpun dan dimanapun</p>
+      <p class="b">Pantau proyek lahan secara berkala</p>
+    </div>
+    <div class="col s6">
+      <img src="{{ asset('img/hp.PNG') }}" alt="">
+    </div>
+  </div>
+</footer>
+<!-- End Mengapa gopro -->
+
+<!-- footer -->
+<footer class="page-footer green lighten-1">
+  <div class="footer-copyright green">
+    <div class="container">
+    © GOPRO 2019 Copyright
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
 
 
 <script>

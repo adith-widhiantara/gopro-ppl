@@ -18,11 +18,46 @@
         <li><a href="#">Proyek Pendanaan</a></li>
         <li><a href="#">Jadi Mitra</a></li>
         <li><a href="#">Tentang Kami</a></li>
-        <li><a href="#">Masuk</a></li>
+        @guest
+        <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
+        @else
+        <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>{{ Auth::user()->role }}</a></li>
+        @endguest
       </ul>
     </div>
   </nav>
 </div>
+
+<div id="masuk" class="modal">
+  <div class="modal-content">
+    <div class="card">
+        <div class="card-content black-text">
+          <span class="card-title">Masuk</span>
+          <p>Belum punya akun? <a href="{{ url('daftar') }}">Daftar</a></p>
+          <form method="POST" action="postlogin">
+              @csrf
+          <div class="input-field">
+            <input placeholder="e.g: mail@example.com / adithwidhiantara" id="username" type="text" class="validate" name="email">
+            <label for="username">Email / Username</label>
+          </div>
+          <div class="input-field">
+            <input placeholder="Password" id="password" type="password" class="validate" name="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn waves-effect waves-light" type="submit">Masuk
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+  </form>
+</div>
+
+<ul id='dropdown1' class='dropdown-content'>
+  <li><a href="{{url('logout')}}">Keluar</a></li>
+</ul>
 <!-- End Navbar -->
 
 <!-- Slider -->
@@ -134,9 +169,9 @@
                 <p class="a">Pak Baskara</p>
                 <p>Petani Buah Naga</p>
                 <br>
-                <p class="c">Mendengar kata "Raja Buah Naga" mungkin yang terlintas dipikiran teman GoPro adalah petani buah naga yang sukses.</p>
+                <p class="c">Mendengar kata "Raja Buah Naga" mungkin yang terlintas dipikiran teman GoPro adalah petani buah naga yang sukses.<br></p>
+                <a class="waves-effect waves-light btn green">Lanjutkan Membaca</a>
               </div>
-              <a class="waves-effect waves-light btn green">Lanjutkan Membaca</a>
             </div>
           </div>
       </div>
@@ -200,6 +235,19 @@ document.addEventListener('DOMContentLoaded', function() {
 $(".num").counterUp({
   delay:10,
   time:1000
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var instances = M.Dropdown.init(elems,{
+    hover: true,
+    coverTrigger: false
+  });
 });
 </script>
 @endsection

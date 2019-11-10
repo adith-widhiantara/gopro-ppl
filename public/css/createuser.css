@@ -1,0 +1,49 @@
+.daftar{
+  margin-top: 100px;
+}
+
+.daftar .gopro{
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.daftar .card-title a:link{
+  text-decoration: none;
+  color: #000000;
+}
+
+.daftar .card-title a:visited{
+  text-decoration: none;
+  color: #000000;
+}
+
+.carousel .carousel-item{
+  width: 450px !important;
+}
+
+.daftar .daftarsekarang span{
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.daftar .daftarsekarang p{
+  text-align: center;
+  color: #9E9E9E;
+}
+
+.daftar .daftarsekarang .btn{
+  background-color: #4caf50;
+  margin-right: 24px;
+  float: right;
+}
+
+.daftar .daftarsekarang .btn i{
+  font-size: 17px;
+}
+
+.daftar .daftarsekarang .card-content{
+  height: 370px;
+}

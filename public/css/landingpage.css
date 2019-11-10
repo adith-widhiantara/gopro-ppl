@@ -1,5 +1,5 @@
 body{
-  height: 500px;
+  height: auto;
 }
 
 .navbar-fixed {
@@ -27,6 +27,27 @@ body{
 
 .navnav .brand-logo{
   font-family: 'Lora', serif;
+}
+
+.modal-content .card-title{
+  font-size: 30px;
+  color: #4caf50;
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal .card-content p{
+  text-align: center;
+  color: #9e9e9e;
+}
+
+.modal .card{
+  box-shadow:none !important;
+}
+
+.modal .modal-footer .btn{
+  background-color: #4caf50;
+  margin-right: 24px;
 }
 
 .hr{
@@ -58,6 +79,7 @@ body{
   padding: 20px;
   color: #000;
   font-size: 30px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .coll i{
@@ -94,6 +116,7 @@ body{
   font-size: 20px;
   position: absolute;
   top: 30%;
+  font-family: 'PT Serif', serif;
 }
 
 .bantupetani a{

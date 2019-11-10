@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', 'Auth\LoginController@logout');
+
+// User
+Route::get('daftar', 'UserController@daftar');
+// end user
+
+// multiuser
+Route::post('postlogin', 'AuthController@postlogin');
+Route::group(['middleware' => ['auth','Admin:admin,user']], function(){
+Route::get('home','AuthController@role');
+});
+// end multiuser

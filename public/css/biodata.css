@@ -1,0 +1,64 @@
+.navbar .gopro a{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #14d941;
+}
+
+.navbar .gopro a:hover{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #14d941;
+}
+
+.navbar .gopro a:visited{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #14d941;
+}
+
+.isian{
+  margin-top: 50px;
+}
+
+.isian .card-title{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.isian .tigatombol{
+  margin-top: 100px;
+}
+
+.isian .tigatombol li{
+  list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -40px;
+}
+
+.isian .tigatombol li a{
+  display: block;
+  text-align: left;
+}
+
+.isian .tigatombol .o{
+  color: #14d941;
+}
+
+.isian .profilku .card-text{
+  text-align: center;
+  font-size: 10px;
+}
+
+.isian .profilku .unggah button{
+  display: block;
+  width: 100%;
+}
+
+.isian .profilku .bio button{
+  float: right;
+  color: #ffffff;
+  margin-left: 10px;
+}

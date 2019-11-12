@@ -21,7 +21,13 @@
         @guest
         <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
         @else
-        <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>{{ Auth::user()->role }}</a></li>
+        <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>
+          @if ( Auth::user()->nama == "" )
+            {{ Auth::user()->role }}
+          @else
+            {{ Auth::user()->nama }}
+          @endif
+        </a></li>
         @endguest
       </ul>
     </div>
@@ -56,6 +62,15 @@
 </div>
 
 <ul id='dropdown1' class='dropdown-content'>
+  @guest
+  @else
+    @if(Auth::user()->nama == "")
+      <li><a href="{{ url('home/bio') }}">Lengkapi Biodata</a></li>
+    @else
+      <li><a href="#">Lihat Biodata</a></li>
+    @endif
+
+  @endguest
   <li><a href="{{url('logout')}}">Keluar</a></li>
 </ul>
 <!-- End Navbar -->

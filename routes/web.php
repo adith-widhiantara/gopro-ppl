@@ -22,6 +22,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 // User
 Route::get('daftar', 'UserController@daftar');
+Route::get('home/bio', 'UserController@bio');
 // end user
 
 // multiuser
@@ -30,3 +31,8 @@ Route::group(['middleware' => ['auth','Admin:admin,user']], function(){
 Route::get('home','AuthController@role');
 });
 // end multiuser
+
+// createbio
+Route::post('home/bio/photo', 'UserController@uploadphoto');
+Route::post('home/bio/bioup', 'UserController@store');
+// end createbio

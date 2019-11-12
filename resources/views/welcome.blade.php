@@ -15,19 +15,22 @@
     <div class="nav-wrapper container">
       <a href="#" class="brand-logo">GOPRO</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Proyek Pendanaan</a></li>
-        <li><a href="#">Jadi Mitra</a></li>
-        <li><a href="#">Tentang Kami</a></li>
         @guest
-        <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
+          <li><a onclick="M.toast({html: 'Anda harus masuk terlebih dahulu!'})">Proyek Pendanaan</a></li>
+          <li><a onclick="M.toast({html: 'Anda harus masuk terlebih dahulu!'})">Jadi Mitra</a></li>
+          <li><a onclick="M.toast({html: 'Anda harus masuk terlebih dahulu!'})">Tentang Kami</a></li>
+          <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
         @else
-        <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>
-          @if ( Auth::user()->nama == "" )
-            {{ Auth::user()->role }}
-          @else
-            {{ Auth::user()->nama }}
-          @endif
-        </a></li>
+          <li><a href="{{ url('home/product') }}">Proyek Pendanaan</a></li>
+          <li><a href="#">Jadi Mitra</a></li>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>
+            @if ( Auth::user()->nama == "" )
+              {{ Auth::user()->role }}
+            @else
+              {{ Auth::user()->nama }}
+            @endif
+          </a></li>
         @endguest
       </ul>
     </div>
@@ -157,7 +160,7 @@
 <div style="z-index: -1" class="row bantupetani">
     <div class="col s4 offset-s2">
       <p>Bantu Petani perkebunan di Indonesia<br>untuk lebih produktif dalam menghasilkan<br>panen yang berkualitas.</p>
-      <a class="waves-effect waves-light btn green">Mulai Investasi</a>
+      <a href="{{ url('home/product') }}" class="waves-effect waves-light btn green">Mulai Investasi</a>
     </div>
     <div class="col s4">
       <img src="{{ asset('img/mulaiinvestasi.jpg') }}" alt="">

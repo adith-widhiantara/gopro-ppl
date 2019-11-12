@@ -28,7 +28,15 @@
               <form method="POST" action="{{ route('register') }}">
                   @csrf
 
-                  <input type="hidden" name="role" value="user">
+                <div class="input-field">
+                  <select name="role">
+                    <option value="" disabled selected></option>
+                    <option value="petani">Petani</option>
+                    <option value="investor">Investor</option>
+                    <option value="sdm">SDM</option>
+                  </select>
+                  <label>Anda sebagai apa?</label>
+                </div>
 
                 <div class="input-field">
                   <input placeholder="e.g : mail@example.com" id="email" type="email" class="validate" name="email">
@@ -65,6 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
 </script>
 
 @endsection

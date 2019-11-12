@@ -17,9 +17,15 @@ class AuthController extends Controller
   public function role()
     {
         $role = Auth()->user()->role;
-        if (Auth()->user()->role == 'admin') {
-            return view('admin.welcome');
-        }else if (Auth()->user()->role == 'user') {
+        if (Auth()->user()->role == 'surveyor') {
+            return view('user.surveyor.welcome');
+        }else if (Auth()->user()->role == 'investor') {
+            return view('welcome');
+        }
+        else if (Auth()->user()->role == 'petani') {
+            return view('welcome');
+        }
+        else if (Auth()->user()->role == 'sdm') {
             return view('welcome');
         }
     }

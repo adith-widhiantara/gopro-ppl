@@ -18,6 +18,6 @@ class Admin
       if (in_array($request->user()->role,$roles)){
         return $next($request);
             }
-        return redirect('index');
+        return redirect('/home');
     }
 }

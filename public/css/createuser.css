@@ -23,7 +23,7 @@
   width: 450px !important;
 }
 
-.daftar .daftarsekarang span{
+.daftar .daftarsekarang .card-title{
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -45,5 +45,5 @@
 }
 
 .daftar .daftarsekarang .card-content{
-  height: 370px;
+  height: 420px;
 }

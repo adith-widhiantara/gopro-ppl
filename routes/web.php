@@ -27,12 +27,24 @@ Route::get('home/bio', 'UserController@bio');
 
 // multiuser
 Route::post('postlogin', 'AuthController@postlogin');
-Route::group(['middleware' => ['auth','Admin:admin,user']], function(){
+Route::group(['middleware' => ['auth','Admin:surveyor,petani,investor,sdm']], function(){
 Route::get('home','AuthController@role');
 });
 // end multiuser
 
-// createbio
-Route::post('home/bio/photo', 'UserController@uploadphoto');
-Route::post('home/bio/bioup', 'UserController@store');
-// end createbio
+// create bio
+Route::prefix('home/bio')->group(function () {
+  Route::post('photo', 'UserController@uploadphoto');
+  Route::post('bioup', 'UserController@store');
+});
+// end create bio
+
+// Product
+Route::resource('home/product', 'ProductController');
+// end Product
+
+// Petani
+Route::group(['middleware' => ['auth','Admin:petani']], function(){
+
+});
+// end Petani

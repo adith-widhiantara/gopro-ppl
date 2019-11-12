@@ -1,0 +1,13 @@
+.navbar .gopro a{
+  font-family: 'Lora', serif;
+  font-size: 31px;
+  font-weight: bold;
+}
+
+.produk{
+  margin-top: 50px;
+}
+
+.produk .card-title{
+  text-align: center;
+}

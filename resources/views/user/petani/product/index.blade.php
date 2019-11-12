@@ -57,10 +57,12 @@
             <div class="col">
               <input type="text" class="form-control" placeholder="Judul Produk">
             </div>
+
             <div class="col">
               <input type="number" class="form-control" placeholder="Harga">
             </div>
           </div>
+
         </form>
       </div>
     </div>

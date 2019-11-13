@@ -39,8 +39,11 @@
                 </div>
 
                 <div class="input-field">
-                  <input placeholder="e.g : mail@example.com" id="email" type="email" class="validate" name="email">
+                  <input placeholder="e.g : mail@example.com" id="email" type="email" class="validate @error('email') is-invalid @enderror" name="email">
                   <label for="email">Email</label>
+                @error('email')
+                  <label for="email">Email  {{ $message }}</label>
+                @enderror
                 </div>
 
                 <div class="input-field">

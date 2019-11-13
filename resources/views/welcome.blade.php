@@ -70,7 +70,7 @@
     @if(Auth::user()->nama == "")
       <li><a href="{{ url('home/bio') }}">Lengkapi Biodata</a></li>
     @else
-      <li><a href="#">Lihat Biodata</a></li>
+      <li><a href="{{ url('home/read') }}">Lihat Biodata</a></li>
     @endif
 
   @endguest

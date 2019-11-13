@@ -28,7 +28,7 @@ Route::get('home/bio', 'UserController@bio');
 // multiuser
 Route::post('postlogin', 'AuthController@postlogin');
 Route::group(['middleware' => ['auth','Admin:surveyor,petani,investor,sdm']], function(){
-Route::get('home','AuthController@role');
+  Route::get('home','AuthController@role');
 });
 // end multiuser
 
@@ -46,5 +46,8 @@ Route::resource('home/product', 'ProductController');
 // Petani
 Route::group(['middleware' => ['auth','Admin:petani']], function(){
 
+});
+Route::prefix('home')->group(function () {
+  Route::get('read', 'UserController@index');
 });
 // end Petani

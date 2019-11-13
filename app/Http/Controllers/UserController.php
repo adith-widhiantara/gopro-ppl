@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('user/all/read');
     }
 
     /**
@@ -64,6 +64,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+      $this->validate($request, [
+        'nama' => 'required|max:255',
+        'tanggallahir' => 'required|max:255',
+        'jeniskelamin' => 'required|max:255',
+        'status' => 'required|max:255',
+        'username' => 'required|max:255|unique:users,username',
+        'kontak' => 'required|max:255',
+      ]);
+
       User::where('id', Auth::user()->id)
             ->update([
             'nama' => $request['nama'],

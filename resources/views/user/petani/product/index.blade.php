@@ -46,28 +46,44 @@
 </nav>
 <!-- End Navbar -->
 
-<!-- Buat product -->
-<div class="produk">
-  <div class="container">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Buat baru produk</h5>
-        <form>
-          <div class="row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Judul Produk">
-            </div>
-
-            <div class="col">
-              <input type="number" class="form-control" placeholder="Harga">
-            </div>
-          </div>
-
-        </form>
+<!-- alert biodata -->
+@if(Auth::user()->nama == "")
+  <div class="container alertbio">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="alert alert-danger text-center" role="alert">
+          Diharap untuk melengkapi biodata terlebih dahulu! <a href="{{ url('home/bio') }}">Klik disini</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+@endif
+<!-- alert biodata -->
+
+<!-- Buat product -->
+@if(Auth::user()->role == "petani")
+  <div class="produk">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Buat baru produk</h5>
+          <form>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Judul Produk">
+              </div>
+
+              <div class="col">
+                <input type="number" class="form-control" placeholder="Harga">
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+@endif
 <!-- End Buat product -->
 
 @endsection

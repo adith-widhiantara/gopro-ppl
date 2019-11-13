@@ -12,6 +12,8 @@
 
     <title>@yield('title')</title>
 
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/datepicker/tempusdominus-bootstrap-4.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/inputmask/css/inputmask.css') }}" />
 

@@ -58,8 +58,9 @@
             <div class="card">
               <img src="{{ asset('imgupl/photoprofile/'.Auth::user()->photo) }}" class="card-img-top" alt="Auth::user()->photo">
               <div class="card-body">
-                <fieldset disabled>
-                  <div class="form-row">
+                    <form>
+                      @csrf
+                      <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="email">Email</label>
                       <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}">
@@ -89,11 +90,11 @@
                       <input type="text" class="form-control" id="kontak" value="{{Auth::user()->kontak}}">
                     </div>
                   </div>
-                </fieldset>
+                  <button type="submit" class="btn btn-outline-warning">Ubah Data</button>
+                </form>
               </div>
             </div>
-            <a href="{{ url('home/edit') }}" class="card-link">Ubah Data</a>
-            <a href="{{ url('/') }}" class="card-link">Kembali</a>
+            <a href="{{ url('') }}" class="card-link">Kembali</a>
           </div>
         </div>
       </div>

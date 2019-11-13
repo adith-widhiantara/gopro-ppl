@@ -103,9 +103,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('user.all.update');
     }
 
     /**
@@ -117,7 +117,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'nama' => 'required|max:255',
+        'tanggallahir' => 'required|max:255',
+        'jeniskelamin' => 'required|max:255',
+        'status' => 'required|max:255',
+        'username' => 'required|max:255|unique:users,username',
+        'kontak' => 'required|max:255',
+      ]);
+
+      User::where('id', Auth::user()->id)
+            ->update([
+            'nama' => $request['nama'],
+            'tanggallahir' => $request['tanggallahir'],
+            'jeniskelamin' => $request['jeniskelamin'],
+            'status' => $request['status'],
+            'username' => $request['username'],
+            'kontak' => $request['kontak']
+          ]);
+
+      return redirect('home');
     }
 
     /**

@@ -1,0 +1,29 @@
+.navbar .gopro a{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.navbar .gopro a:hover{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.navbar .gopro a:visited{
+  font-family: 'Jomolhari', serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.biodata{
+  margin-top: 30px;
+}
+
+.biodata .card-title{
+  font-size: 50px;
+  text-align: center;
+}

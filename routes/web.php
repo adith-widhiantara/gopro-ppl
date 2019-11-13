@@ -23,6 +23,12 @@ Route::get('logout', 'Auth\LoginController@logout');
 // User
 Route::get('daftar', 'UserController@daftar');
 Route::get('home/bio', 'UserController@bio');
+
+Route::prefix('home')->group(function () {
+  Route::get('read', 'UserController@index');
+  Route::get('edit', 'UserController@edit');
+  Route::post('update', 'UserController@update');
+});
 // end user
 
 // multiuser
@@ -46,8 +52,5 @@ Route::resource('home/product', 'ProductController');
 // Petani
 Route::group(['middleware' => ['auth','Admin:petani']], function(){
 
-});
-Route::prefix('home')->group(function () {
-  Route::get('read', 'UserController@index');
 });
 // end Petani

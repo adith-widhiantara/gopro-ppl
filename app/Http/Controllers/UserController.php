@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user/all/read');
+        return view('user.all.read');
     }
 
     /**
@@ -71,7 +71,15 @@ class UserController extends Controller
         'status' => 'required|max:255',
         'username' => 'required|max:255|unique:users,username',
         'kontak' => 'required|max:255',
+        'ktp' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        'perusahaan' => 'required|max:255',
       ]);
+
+      $file = $request->file('ktp');
+      $nama_file = time()."_".$file->getClientOriginalName();
+
+      $tujuan_upload = 'imgupl/ktp';
+      $file->move($tujuan_upload,$nama_file);
 
       User::where('id', Auth::user()->id)
             ->update([
@@ -80,7 +88,9 @@ class UserController extends Controller
             'jeniskelamin' => $request['jeniskelamin'],
             'status' => $request['status'],
             'username' => $request['username'],
-            'kontak' => $request['kontak']
+            'kontak' => $request['kontak'],
+            'ktp' => $nama_file,
+            'perusahaan' => $request['perusahaan'],
           ]);
 
       return redirect('home');

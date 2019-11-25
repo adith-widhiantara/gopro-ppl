@@ -46,8 +46,8 @@
           <form method="POST" action="postlogin">
               @csrf
           <div class="input-field">
-            <input placeholder="e.g: mail@example.com / adithwidhiantara" id="username" type="text" class="validate" name="email">
-            <label for="username">Email / Username</label>
+            <input placeholder="e.g: mail@example.com" id="username" type="text" class="validate" name="email">
+            <label for="username">Email</label>
           </div>
           <div class="input-field">
             <input placeholder="Password" id="password" type="password" class="validate" name="password">

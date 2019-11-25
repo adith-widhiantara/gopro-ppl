@@ -95,7 +95,7 @@
           </form>
         </div>
         <div class="col-8 bio">
-          <form action="{{ url('home/bio/bioup') }}" method="post">
+          <form action="{{ url('home/bio/bioup') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="namalengkap">Nama Lengkap</label>
@@ -147,6 +147,16 @@
             <div class="form-group">
               <label for="kontak">Kontak</label>
               <input type="text" class="form-control phone-inputmask" id="kontak" placeholder="" name="kontak">
+            </div>
+
+            <div class="form-group">
+              <label for="KTP">Masukkan KTP</label>
+              <input type="file" class="form-control-file" id="KTP" name="ktp">
+            </div>
+
+            <div class="form-group">
+              <label for="perusahaan">Perusahaan</label>
+              <input type="text" class="form-control" id="perusahaan" placeholder="e.g : PT. ABC tbk" name="perusahaan">
             </div>
 
             <button type="submit" class="btn btn-warning">Simpan</button>

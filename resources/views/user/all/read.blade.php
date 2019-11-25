@@ -50,50 +50,83 @@
 <!-- Biodata -->
 <div class="biodata">
   <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Biodata</h2>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Biodata</h5>
-            <div class="card">
-              <img src="{{ asset('imgupl/photoprofile/'.Auth::user()->photo) }}" class="card-img-top" alt="Auth::user()->photo">
-              <div class="card-body">
-                <fieldset disabled>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="username">Username</label>
-                      <input type="text" class="form-control" id="username" value="{{Auth::user()->username}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="nama">Nama</label>
-                      <input type="text" class="form-control" id="nama" value="{{Auth::user()->nama}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="tanggallahir">Tanggal Lahir</label>
-                      <input type="text" class="form-control" id="tanggallahir" value="{{Auth::user()->tanggallahir}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="jeniskelamin">Jenis Kelamin</label>
-                      <input type="text" class="form-control" id="jeniskelamin" value="{{Auth::user()->jeniskelamin}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="status">Status</label>
-                      <input type="text" class="form-control" id="status" value="{{Auth::user()->status}}">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="kontak">Kontak</label>
-                      <input type="text" class="form-control" id="kontak" value="{{Auth::user()->kontak}}">
-                    </div>
+            <img src ="{{ asset('imgupl/photoprofile/'.Auth::user()->photo) }}" class="card-img-top" alt="Auth::user()->photo">
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="card">
+          <div class="card-body">
+            <fieldset disabled>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" value="{{Auth::user()->username}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="nama">Nama</label>
+                  <input type="text" class="form-control" id="nama" value="{{Auth::user()->nama}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="tanggallahir">Tanggal Lahir</label>
+                  <input type="text" class="form-control" id="tanggallahir" value="{{Auth::user()->tanggallahir}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="jeniskelamin">Jenis Kelamin</label>
+                  <input type="text" class="form-control" id="jeniskelamin" value="{{Auth::user()->jeniskelamin}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="status">Status</label>
+                  <input type="text" class="form-control" id="status" value="{{Auth::user()->status}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="kontak">Kontak</label>
+                  <input type="text" class="form-control" id="kontak" value="{{Auth::user()->kontak}}">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Lihat KTP
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">KTP</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
-                </fieldset>
+                  <div class="modal-body">
+                    <img src="{{ asset('imgupl/ktp/'.Auth::user()->ktp) }}" class="img-fluid" alt="Responsive image">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
               </div>
             </div>
-            <a href="{{ url('home/edit') }}" class="card-link">Ubah Data</a>
-            <a href="{{ url('/') }}" class="card-link">Kembali</a>
+            <div style="float: right;">
+              <a class="btn btn-warning" href="{{ url('home/edit') }}">Ubah Data</a>
+              <a class="btn btn-secondary" href="{{ url('/') }}">Kembali</a>
+            </div>
           </div>
         </div>
       </div>

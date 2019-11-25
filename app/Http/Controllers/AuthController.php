@@ -11,7 +11,7 @@ class AuthController extends Controller
       if (Auth::attempt($request->only('email','password'))) {
         return redirect('/home');
       }
-        return 'Password Salah';
+        return redirect('/');
     }
 
   public function role()

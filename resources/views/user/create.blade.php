@@ -32,8 +32,7 @@
                   <select name="role">
                     <option value="" disabled selected></option>
                     <option value="petani">Petani</option>
-                    <option value="investor">Investor</option>
-                    <option value="sdm">SDM</option>
+                    <option value="sdm">SDM / Investor</option>
                   </select>
                   <label>Anda sebagai apa?</label>
                 </div>

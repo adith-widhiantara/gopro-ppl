@@ -49,6 +49,9 @@ Route::prefix('home/bio')->group(function () {
 Route::prefix('home/product')->group(function () {
   Route::get('', 'ProductController@index');
   Route::get('create', 'ProductController@create');
+  Route::post('create', 'ProductController@store');
+  Route::get('proyeksaya', 'ProductController@proyeksaya')->name('proyeksaya');
+  Route::get('proyeksaya/{pengajuanpetani}', 'ProductController@proyeksayadetail')->name('proyeksayadetail');
 });
 // end Product
 

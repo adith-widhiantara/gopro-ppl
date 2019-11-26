@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pengajuanpetani extends Model
 {
     protected $fillable = [
-      'namaproyek', 'luaslahan', 'satuan', 'jenistanaman', 'jangkawaktu', 'surattanah', 'NPWP', 'check'
+      'user_id', 'namaproyek', 'luaslahan', 'satuan', 'jenistanaman', 'jangkawaktu', 'surattanah', 'NPWP', 'check'
     ];
 
     public function investasi()
     {
       return $this->hasOne(Investasi::class);
+    }
+
+    public function user(){
+      return $this->belongsTo(User::class);
     }
 }

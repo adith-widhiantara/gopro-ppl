@@ -25,40 +25,41 @@
         <div class="card-body">
           <h5 class="card-title">Buat baru produk</h5>
           <form method="post" enctype="multipart/form-data">
+            @csrf
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="inputEmail4">Nama Proyek Pendanaan</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="E. g : Perkebunan Buah Naga" name="nama">
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="E. g : Perkebunan Buah Naga" name="namaproyek" value="{{ old('namaproyek') }}">
                 </div>
 
                 <div class="form-group">
                   <label for="inputEmail4">Luas Lahan</label>
                   <div class="row">
                     <div class="col-8">
-                      <input type="number" class="form-control" id="inputEmail4" placeholder="E. g : 50 Ha">
+                      <input type="number" class="form-control" id="inputEmail4" placeholder="E. g : 50 Ha" name="luaslahan" value="{{ old('luaslahan') }}">
                     </div>
                     <div class="col-4">
-                      <input type="text" class="form-control" id="inputEmail4" placeholder="Satuan">
+                      <input type="text" class="form-control" id="inputEmail4" placeholder="Satuan" name="satuan" value="{{ old('satuan') }}">
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="inputEmail4">Jenis Tanaman</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="E.g : Tembakau, Kakao">
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="E.g : Tembakau, Kakao" name="jenistanaman" value="{{ old('jenistanaman') }}">
                 </div>
 
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="inputEmail4">Scan Surat Tanah</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="surattanah" value="{{ old('surattanah') }}">
                 </div>
 
                 <div class="form-group">
                   <label for="inputEmail4">Scan Surat NPWP</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="NPWP" value="{{ old('NPWP') }}">
                 </div>
               </div>
             </div>
@@ -68,7 +69,7 @@
                   <label for="inputEmail4">Jangka Waktu</label>
                   <div class="row">
                     <div class="col-8">
-                      <input type="number" class="form-control" id="inputEmail4" placeholder="E. g : 2 Tahun">
+                      <input type="number" class="form-control" id="inputEmail4" placeholder="E. g : 2 Tahun" name="jangkawaktu" value="{{ old('jangkawaktu') }}">
                     </div>
                     <div class="col-4">
                       <fieldset disabled>
@@ -79,7 +80,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <button style="position: absolute; bottom: 0; right: 15px;" type="submit" class="btn btn-primary">Primary</button>
+                <button style="position: absolute; bottom: 0; right: 15px;" type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </div>
           </form>

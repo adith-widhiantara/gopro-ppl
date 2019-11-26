@@ -46,7 +46,10 @@ Route::prefix('home/bio')->group(function () {
 // end create bio
 
 // Product
-Route::resource('home/product', 'ProductController');
+Route::prefix('home/product')->group(function () {
+  Route::get('', 'ProductController@index');
+  Route::get('create', 'ProductController@create');
+});
 // end Product
 
 // Petani

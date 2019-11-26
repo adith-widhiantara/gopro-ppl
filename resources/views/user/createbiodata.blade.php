@@ -66,7 +66,7 @@
       </div>
       <div class="tigatombol">
         <ul>
-          <li><a class="btn" href="#" role="button"><i class="fa fa-home" aria-hidden="true"></i> Halaman Depan</a></li>
+          <li><a class="btn" href="{{ url('/') }}" role="button"><i class="fa fa-home" aria-hidden="true"></i> Halaman Depan</a></li>
           <li><a class="btn" href="#" role="button"><i class="fa fa-file" aria-hidden="true"></i> Riwayat Permodalan</a></li>
           <li><a class="btn o" href="#" role="button"><i class="fa fa-user-o" aria-hidden="true"></i> Profilku</a></li>
         </ul>

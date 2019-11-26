@@ -15,11 +15,15 @@ class CreatePengajuanpetaniTable extends Migration
     {
         Schema::create('pengajuanpetani', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id')->nullable($value = true);
+            $table->string('namaproyek')->nullable($value = true);
             $table->integer('luaslahan')->nullable($value = true);
-            $table->string('tipetanaman')->nullable($value = true);
-            $table->string('KTP')->nullable($value = true);
+            $table->string('satuan')->nullable($value = true);
+            $table->string('jenistanaman')->nullable($value = true);
+            $table->integer('jangkawaktu')->nullable($value = true);
             $table->string('surattanah')->nullable($value = true);
             $table->string('NPWP')->nullable($value = true);
+            $table->integer('check')->default(0);
             $table->timestamps();
         });
     }

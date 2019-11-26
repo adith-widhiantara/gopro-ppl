@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengajuanpetani extends Model
 {
     protected $fillable = [
-      'luaslahan', 'tipetanaman', 'KTP', 'surattanah', 'NPWP'
+      'namaproyek', 'luaslahan', 'satuan', 'jenistanaman', 'jangkawaktu', 'surattanah', 'NPWP', 'check'
     ];
 
     public function investasi()

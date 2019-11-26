@@ -21,8 +21,12 @@
           <li><a onclick="M.toast({html: 'Anda harus masuk terlebih dahulu!'})">Tentang Kami</a></li>
           <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
         @else
-          <li><a href="{{ url('home/product') }}">Proyek Pendanaan</a></li>
-          <li><a href="#">Jadi Mitra</a></li>
+          @if(Auth::user()->role == "sdm")
+            <li><a href="#">Cari Kerja</a></li>
+          @else
+            <li><a href="{{ url('home/product') }}">Proyek Pendanaan</a></li>
+            <li><a href="#">Jadi Mitra</a></li>
+          @endif
           <li><a href="#">Tentang Kami</a></li>
           <li><a class='dropdown-trigger' href='#' data-target='dropdown1'>
             @if ( Auth::user()->nama == "" )

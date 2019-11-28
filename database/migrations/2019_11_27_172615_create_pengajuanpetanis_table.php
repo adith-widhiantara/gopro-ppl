@@ -28,31 +28,34 @@ class CreatePengajuanpetanisTable extends Migration
             $table->string('gambar1')->nullable($value = true);
             $table->string('gambar2')->nullable($value = true);
             $table->string('gambar3')->nullable($value = true);
-            $table->integer('1beratpupuk')->nullable($value = true);
-            $table->integer('1satuanpupuk')->nullable($value = true);
-            $table->integer('1totalpupuk')->nullable($value = true);
-            $table->integer('1beratbibit')->nullable($value = true);
-            $table->integer('1satuanbibit')->nullable($value = true);
-            $table->integer('1totalbibit')->nullable($value = true);
-            $table->integer('1totaloperasional')->nullable($value = true);
-            $table->integer('1jumlahkaryawan')->nullable($value = true);
-            $table->integer('1satuankaryawan')->nullable($value = true);
-            $table->integer('1totalkaryawan')->nullable($value = true);
-            $table->integer('1sewalahan')->nullable($value = true);
-            $table->integer('1totalperalatan')->nullable($value = true);
-            $table->integer('1totalsemua')->nullable($value = true);
-            $table->integer('2survivalrate')->nullable($value = true);
-            $table->integer('2satuanbibit')->nullable($value = true);
-            $table->integer('2satuanjadi')->nullable($value = true);
-            $table->integer('2totaljadi')->nullable($value = true);
-            $table->integer('2hargajual')->nullable($value = true);
-            $table->integer('2totalpenerimaan')->nullable($value = true);
-            $table->integer('3lababersih')->nullable($value = true);
-            $table->integer('3bagihasil')->nullable($value = true);
-            $table->integer('3jumlah')->nullable($value = true);
-            $table->decimal('4roi', 8, 2)->nullable($value = true);
+            $table->integer('aberatpupuk')->nullable($value = true);
+            $table->integer('asatuanpupuk')->nullable($value = true);
+            $table->integer('atotalpupuk')->nullable($value = true);
+            $table->integer('aberatbibit')->nullable($value = true);
+            $table->integer('asatuanbibit')->nullable($value = true);
+            $table->integer('atotalbibit')->nullable($value = true);
+            $table->integer('atotaloperasional')->nullable($value = true);
+            $table->integer('ajumlahkaryawan')->nullable($value = true);
+            $table->integer('asatuankaryawan')->nullable($value = true);
+            $table->integer('atotalkaryawan')->nullable($value = true);
+            $table->integer('asewalahan')->nullable($value = true);
+            $table->integer('atotalperalatan')->nullable($value = true);
+            $table->integer('atotalsemua')->nullable($value = true);
+            $table->integer('bsurvivalrate')->nullable($value = true);
+            $table->integer('bsatuanbibit')->nullable($value = true);
+            $table->integer('bsatuanjadi')->nullable($value = true);
+            $table->integer('btotaljadi')->nullable($value = true);
+            $table->integer('bhargajual')->nullable($value = true);
+            $table->integer('btotalpenerimaan')->nullable($value = true);
+            $table->integer('clababersih')->nullable($value = true);
+            $table->integer('cbagihasil')->nullable($value = true);
+            $table->integer('cjumlah')->nullable($value = true);
+            $table->decimal('droi', 8, 2)->nullable($value = true);
             $table->timestamps();
         });
+
+
+
     }
 
     /**

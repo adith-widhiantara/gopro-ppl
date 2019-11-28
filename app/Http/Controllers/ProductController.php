@@ -26,6 +26,12 @@ class ProductController extends Controller
       return view('user.petani.product.proyeksaya', compact('pengajuanpetani'));
     }
 
+    public function proyeksayadetail(Pengajuanpetani $pengajuanpetani)
+    {
+      $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani->id);
+      return view('user.petani.product.detail', compact('pengajuanpetani'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -120,38 +126,24 @@ class ProductController extends Controller
 
     public function upbiayaoperasional(Request $request, Pengajuanpetani $pengajuanpetani)
     {
-      $this->validate($request, [
-  			'1beratpupuk' => 'required',
-        '1satuanpupuk' => 'required',
-        '1totalpupuk' => 'required',
-        '1beratbibit' => 'required',
-        '1satuanbibit' => 'required',
-        '1totalbibit' => 'required',
-        '1totaloperasional' => 'required',
-        '1jumlahkaryawan' => 'required',
-        '1satuankaryawan' => 'required',
-        '1totalkaryawan' => 'required',
-        '1sewalahan' => 'required',
-        '1totalperalatan' => 'required',
-        '1totalsemua' => 'required',
-  		]);
+      
 
       Pengajuanpetani::where('id', $pengajuanpetani->id)
             ->update([
             'check' => 1,
-            '1beratpupuk' => $request -> beratpupuk,
-            '1satuanpupuk' => $request -> satuanpupuk,
-            '1totalpupuk' => $request -> beratpupuk * $request -> satuanpupuk,
-            '1beratbibit' => $request -> beratbibit,
-            '1satuanbibit' => $request -> satuanbibit,
-            '1totalbibit' => $request -> beratbibit * $request -> satuanbibit,
-            '1totaloperasional' => $request -> totaloperasional,
-            '1jumlahkaryawan' => $request -> jumlahkaryawan,
-            '1satuankaryawan' => $request -> satuankaryawan,
-            '1totalkaryawan' => $request -> jumlahkaryawan * $request -> satuankaryawan,
-            '1sewalahan' => $request -> sewalahan,
-            '1totalperalatan' => $request -> totalperalatan,
-            '1totalsemua' => $request -> totalperalatan + $request -> sewalahan + $request -> beratpupuk * $request -> satuanpupuk + $request -> beratbibit * $request -> satuanbibit + $request -> totaloperasional + $request -> jumlahkaryawan * $request -> satuankaryawan,
+            'aberatpupuk' => $request -> beratpupuk,
+            'asatuanpupuk' => $request -> satuanpupuk,
+            'atotalpupuk' => $request -> beratpupuk * $request -> satuanpupuk,
+            'aberatbibit' => $request -> beratbibit,
+            'asatuanbibit' => $request -> satuanbibit,
+            'atotalbibit' => $request -> beratbibit * $request -> satuanbibit,
+            'atotaloperasional' => $request -> totaloperasional,
+            'ajumlahkaryawan' => $request -> jumlahkaryawan,
+            'asatuankaryawan' => $request -> satuankaryawan,
+            'atotalkaryawan' => $request -> jumlahkaryawan * $request -> satuankaryawan,
+            'asewalahan' => $request -> sewalahan,
+            'atotalperalatan' => $request -> totalperalatan,
+            'atotalsemua' => $request -> totalperalatan + $request -> sewalahan + $request -> beratpupuk * $request -> satuanpupuk + $request -> beratbibit * $request -> satuanbibit + $request -> totaloperasional + $request -> jumlahkaryawan * $request -> satuankaryawan,
           ]);
 
           return redirect()->route('profile', [$user]);

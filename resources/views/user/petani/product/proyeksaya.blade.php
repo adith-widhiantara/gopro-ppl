@@ -49,21 +49,21 @@
               <div class="row">
                 <div class="col-6">
                   <label for="inputEmail4">Nama Proyek</label>
-                  <input type="email" class="form-control" id="inputEmail4" value="{{ $peng -> namaproyek }}">
+                  <input disabled type="text" class="form-control" id="inputEmail4" value="{{ $peng -> namaproyek }}">
                 </div>
                 <div class="col-6">
                   <label for="inputEmail4">Luas Lahan</label>
-                  <input type="email" class="form-control" id="inputEmail4" value="{{ $peng -> luaslahan }} {{ $peng -> satuan }}">
+                  <input disabled type="text" class="form-control" id="inputEmail4" value="{{ $peng -> luaslahan }} {{ $peng -> satuan }}">
                 </div>
               </div>
               <div class="row">
                 <div class="col-6">
                   <label for="inputEmail4">Jenis Tanaman</label>
-                  <input type="email" class="form-control" id="inputEmail4" value="{{ $peng -> jenistanaman }}">
+                  <input disabled type="text" class="form-control" id="inputEmail4" value="{{ $peng -> jenistanaman }}">
                 </div>
                 <div class="col-6">
                   <label for="inputEmail4">Jangka Waktu</label>
-                  <input type="email" class="form-control" id="inputEmail4" value="{{ $peng -> jangkawaktu }} Tahun">
+                  <input disabled type="text" class="form-control" id="inputEmail4" value="{{ $peng -> jangkawaktu }} Tahun">
                 </div>
               </div>
               <div style="margin-top: 20px;" class="row">
@@ -92,11 +92,11 @@
                 </div>
                 <div class="col-4">
                   <label for="inputEmail4">Surat Tanah</label>
-                  <img id="myImg-{{ $peng -> surattanah }}" src="{{ asset('imgupl/surattanah/'.$peng -> surattanah) }}" alt="" class="img-fluid" style="width:100%;max-width:300px">
+                  <img id="myImg" src="{{ asset('imgupl/surattanah/'.$peng -> surattanah) }}" alt="" class="img-fluid" style="width:100%;max-width:300px">
 
-                  <div id="myModal-{{ $peng -> surattanah }}" class="modal">
+                  <div id="myModal" class="modal">
                     <span class="close">&times;</span>
-                    <img class="modal-content" id="img01-{{ $peng -> surattanah }}">
+                    <img class="modal-content" id="img01">
                     <div id="caption"></div>
                   </div>
                 </div>
@@ -111,7 +111,7 @@
                   @elseif($peng->check == 1)
                   <div class="card bg-warning">
                     <div class="card-body text-white">
-                      Proyek Telah Dicek Oleh Surveyor.
+                      Proyek Telah Dicek Oleh Surveyor. <a href="{{ route('proyeksayadetail', $peng->id) }}" class="card-link">Details</a>
                     </div>
                   </div>
                   @elseif($peng->check == 2)
@@ -152,6 +152,7 @@
 @endif
 
 @if(count($pengajuanpetani)>0)
+@foreach($pengajuanpetani as $peng)
 <script>
 // Get the modal
 var modal = document.getElementById("myModal-{{ $peng -> id }}");
@@ -177,11 +178,11 @@ modal.style.display = "none";
 
 <script>
 // Get the modal
-var modal = document.getElementById("myModal-{{ $peng -> surattanah }}");
+var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg-{{ $peng -> surattanah }}");
-var modalImg = document.getElementById("img01-{{ $peng -> surattanah }}");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
 modal.style.display = "block";
@@ -197,5 +198,6 @@ span.onclick = function() {
 modal.style.display = "none";
 }
 </script>
+@endforeach
 @endif
 @endsection

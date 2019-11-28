@@ -20,10 +20,18 @@
 @endif
 <!-- alert biodata -->
 
+@if(count($pengajuanpetani)>0)
 <!-- Table Pengajuan Petani -->
 <div style="margin-top: 50px;" class="container">
   <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-1">
+      <div class="card">
+        <div class="card-body">
+          <a href="{{ URL::previous() }}"><i style="font-size: 35px;" class="fa fa-caret-left" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 offset-2">
       <div class="card">
         <div class="card-body">
           <h1 class="card-title">Daftar Proyek</h1>
@@ -56,6 +64,17 @@
                 <div class="col-6">
                   <label for="inputEmail4">Jangka Waktu</label>
                   <input type="email" class="form-control" id="inputEmail4" value="{{ $peng -> jangkawaktu }} Tahun">
+                </div>
+              </div>
+              <div style="margin-top: 20px;" class="row">
+                <div class="col-md-4">
+                  <button onClick="window.open('{{ asset('imgupl/gambar1/'.$peng->gambar1) }}');" class="btn btn-primary">Gambar Kondisi 1</button>
+                </div>
+                <div class="col-md-4">
+                  <button onClick="window.open('{{ asset('imgupl/gambar2/'.$peng->gambar2) }}');" class="btn btn-primary">Gambar Kondisi 2</button>
+                </div>
+                <div class="col-md-4">
+                  <button onClick="window.open('{{ asset('imgupl/gambar3/'.$peng->gambar3) }}');" class="btn btn-primary">Gambar Kondisi 3</button>
                 </div>
               </div>
             </div>
@@ -114,7 +133,25 @@
   @endforeach
 </div>
 <!-- End Table Pengajuan Petani -->
+@else
+<div style="margin-top: 10px;" class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      GOPRO
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Rencana Proyek Saya Masih Kosong</h5>
+      <p class="card-text">Segera buat proyek melalui GOPRO. Untuk hasil yang lebih baik.</p>
+      <a href="{{ route('buatrencanaproyek') }}" class="btn btn-primary">Klik disini utnuk membuat proyek</a>
+    </div>
+    <div class="card-footer text-muted">
+      GOPRO
+    </div>
+  </div>
+</div>
+@endif
 
+@if(count($pengajuanpetani)>0)
 <script>
 // Get the modal
 var modal = document.getElementById("myModal-{{ $peng -> id }}");
@@ -160,4 +197,5 @@ span.onclick = function() {
 modal.style.display = "none";
 }
 </script>
+@endif
 @endsection

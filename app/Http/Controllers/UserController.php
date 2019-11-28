@@ -46,6 +46,18 @@ class UserController extends Controller
         return view('user.all.read');
     }
 
+    public function listpetani()
+    {
+      $user = User::where('role', 'petani')->get();
+      return view('user.surveyor.list.petani', compact('user'));
+    }
+
+    public function detailpetani(User $user)
+    {
+      $user = User::findOrFail($user->id);
+      return view('user.surveyor.list.detailpetani', compact('user'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

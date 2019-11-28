@@ -23,7 +23,7 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Buat baru produk</h5>
+          <h2 class="card-title">Buat baru produk</h2>
           <form method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -61,6 +61,23 @@
                   <label for="inputEmail4">Scan Surat NPWP</label>
                   <input type="file" class="form-control-file" id="exampleFormControlFile1" name="NPWP" value="{{ old('NPWP') }}">
                 </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="inputEmail4">Upload gambar keadaan terkini kondisi lahan</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar1" value="{{ old('gambar1') }}">
+                  </div>
+                  <div class="col-md-4">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar2" value="{{ old('gambar2') }}">
+                  </div>
+                  <div class="col-md-4">
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="gambar3" value="{{ old('gambar3') }}">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row">
@@ -79,10 +96,23 @@
                   </div>
                 </div>
               </div>
+
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inputEmail4">Alamat</label>
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="E.g : Jln. Danau Toba" name="alamat" value="{{ old('alamat') }}">
+                </div>
+              </div>
+
               <div class="col-md-6">
                 <button style="position: absolute; bottom: 0; right: 15px;" type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </div>
+
           </form>
         </div>
       </div>

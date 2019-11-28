@@ -50,8 +50,12 @@ class ProductController extends Controller
         'satuan' => 'required',
         'jenistanaman' => 'required',
         'jangkawaktu' => 'required',
+        'alamat' => 'required',
         'surattanah' => 'required',
         'NPWP' => 'required',
+        'gambar1' => 'required',
+        'gambar2' => 'required',
+        'gambar3' => 'required',
       ]);
 
       $file1 = $request->file('surattanah');
@@ -64,17 +68,95 @@ class ProductController extends Controller
       $tujuan_upload2 = 'imgupl/NPWP';
       $file2->move($tujuan_upload2,$nama_file2);
 
+      $file3 = $request->file('gambar1');
+      $nama_file3 = time()."_".$file3->getClientOriginalName();
+      $tujuan_upload3 = 'imgupl/gambar1';
+      $file3->move($tujuan_upload3,$nama_file3);
+
+      $file4 = $request->file('gambar2');
+      $nama_file4 = time()."_".$file4->getClientOriginalName();
+      $tujuan_upload4 = 'imgupl/gambar2';
+      $file4->move($tujuan_upload4,$nama_file4);
+
+      $file5 = $request->file('gambar3');
+      $nama_file5 = time()."_".$file5->getClientOriginalName();
+      $tujuan_upload5 = 'imgupl/gambar3';
+      $file5->move($tujuan_upload5,$nama_file5);
+
       $pengajuanpetani = new Pengajuanpetani;
       $pengajuanpetani->namaproyek = $request->namaproyek;
       $pengajuanpetani->luaslahan = $request->luaslahan;
       $pengajuanpetani->satuan = $request->satuan;
       $pengajuanpetani->jenistanaman = $request->jenistanaman;
       $pengajuanpetani->jangkawaktu = $request->jangkawaktu;
+      $pengajuanpetani->alamat = $request->alamat;
       $pengajuanpetani->surattanah = $nama_file1;
       $pengajuanpetani->NPWP = $nama_file2;
+      $pengajuanpetani->gambar1 = $nama_file3;
+      $pengajuanpetani->gambar2 = $nama_file4;
+      $pengajuanpetani->gambar3 = $nama_file5;
       Auth::user()->pengajuanpetani()->save($pengajuanpetani);
       return redirect('home/product');
     }
+
+// Surveyor
+    public function rencanaproyek()
+    {
+      $pengajuanpetani = Pengajuanpetani::all();
+      return view('user.surveyor.proyek.datarencana', compact('pengajuanpetani'));
+    }
+
+    public function detailproyek(Pengajuanpetani $pengajuanpetani)
+    {
+      $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani->id);
+      return view('user.surveyor.proyek.detail', compact('pengajuanpetani'));
+    }
+
+    public function biayaoperasional(Pengajuanpetani $pengajuanpetani)
+    {
+      $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani->id);
+      return view('user.surveyor.proyek.biayaoperasional', compact('pengajuanpetani'));
+    }
+
+    public function upbiayaoperasional(Request $request, Pengajuanpetani $pengajuanpetani)
+    {
+      $this->validate($request, [
+  			'1beratpupuk' => 'required',
+        '1satuanpupuk' => 'required',
+        '1totalpupuk' => 'required',
+        '1beratbibit' => 'required',
+        '1satuanbibit' => 'required',
+        '1totalbibit' => 'required',
+        '1totaloperasional' => 'required',
+        '1jumlahkaryawan' => 'required',
+        '1satuankaryawan' => 'required',
+        '1totalkaryawan' => 'required',
+        '1sewalahan' => 'required',
+        '1totalperalatan' => 'required',
+        '1totalsemua' => 'required',
+  		]);
+
+      Pengajuanpetani::where('id', $pengajuanpetani->id)
+            ->update([
+            'check' => 1,
+            '1beratpupuk' => $request -> beratpupuk,
+            '1satuanpupuk' => $request -> satuanpupuk,
+            '1totalpupuk' => $request -> beratpupuk * $request -> satuanpupuk,
+            '1beratbibit' => $request -> beratbibit,
+            '1satuanbibit' => $request -> satuanbibit,
+            '1totalbibit' => $request -> beratbibit * $request -> satuanbibit,
+            '1totaloperasional' => $request -> totaloperasional,
+            '1jumlahkaryawan' => $request -> jumlahkaryawan,
+            '1satuankaryawan' => $request -> satuankaryawan,
+            '1totalkaryawan' => $request -> jumlahkaryawan * $request -> satuankaryawan,
+            '1sewalahan' => $request -> sewalahan,
+            '1totalperalatan' => $request -> totalperalatan,
+            '1totalsemua' => $request -> totalperalatan + $request -> sewalahan + $request -> beratpupuk * $request -> satuanpupuk + $request -> beratbibit * $request -> satuanbibit + $request -> totaloperasional + $request -> jumlahkaryawan * $request -> satuankaryawan,
+          ]);
+
+          return redirect()->route('profile', [$user]);
+    }
+// End Surveyor
 
     /**
      * Display the specified resource.

@@ -40,46 +40,5 @@
 var x = 0;
 var y = 0;
 var z = 0;
-function calc(obj) {
-    var e = obj.id.toString();
-    if (e == 'tb1') {
-        x = Number(obj.value);
-        y = Number(document.getElementById('tb2').value);
-    } else {
-        x = Number(document.getElementById('tb1').value);
-        y = Number(obj.value);
-    }
-    z = x * y;
-    document.getElementById('total').value = z;
-    document.getElementById('update').innerHTML = z;
-}
-
-function bibit(obj) {
-    var e = obj.id.toString();
-    if (e == 'bibit1') {
-        x = Number(obj.value);
-        y = Number(document.getElementById('bibit2').value);
-    } else {
-        x = Number(document.getElementById('bibit1').value);
-        y = Number(obj.value);
-    }
-    z = x * y;
-    document.getElementById('bibit3').value = z;
-    document.getElementById('update').innerHTML = z;
-}
-
-function karyawan(obj) {
-    var e = obj.id.toString();
-    if (e == 'karyawan1') {
-        x = Number(obj.value);
-        y = Number(document.getElementById('karyawan2').value);
-    } else {
-        x = Number(document.getElementById('karyawan1').value);
-        y = Number(obj.value);
-    }
-    z = x * y;
-    document.getElementById('karyawan3').value = z;
-    document.getElementById('update').innerHTML = z;
-}
 </script>
 @endsection

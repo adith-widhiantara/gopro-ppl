@@ -38,11 +38,11 @@
       </div>
       <div class="col-4">
         <label for="num2">Harga Pupuk per Kg</label>
-        <input type="number" class="form-control" id="tb2" name="satuanpupuk" onkeyup="calc(this)">
+        <input type="number" class="form-control" id="tb2" name="satuanpupuk" onkeyup="calc(this)" value="{{ $pengajuanpetani->asatuanpupuk }}">
       </div>
       <div class="col-4">
         <label for="result">Total Pupuk</label>
-        <input type="number" class="form-control" id="total" disabled>
+        <input type="number" class="form-control" id="total" disabled value="{{ $pengajuanpetani->atotalpupuk }}">
       </div>
     </div>
   </div>
@@ -105,4 +105,48 @@
 
   <button type="submit" class="btn btn-primary">Selanjutnya</button>
 </form>
+
+<script>
+function calc(obj) {
+    var e = obj.id.toString();
+    if (e == 'tb1') {
+        x = Number(obj.value);
+        y = Number(document.getElementById('tb2').value);
+    } else {
+        x = Number(document.getElementById('tb1').value);
+        y = Number(obj.value);
+    }
+    z = x * y;
+    document.getElementById('total').value = z;
+    document.getElementById('update').innerHTML = z;
+}
+
+function bibit(obj) {
+    var e = obj.id.toString();
+    if (e == 'bibit1') {
+        x = Number(obj.value);
+        y = Number(document.getElementById('bibit2').value);
+    } else {
+        x = Number(document.getElementById('bibit1').value);
+        y = Number(obj.value);
+    }
+    z = x * y;
+    document.getElementById('bibit3').value = z;
+    document.getElementById('update').innerHTML = z;
+}
+
+function karyawan(obj) {
+    var e = obj.id.toString();
+    if (e == 'karyawan1') {
+        x = Number(obj.value);
+        y = Number(document.getElementById('karyawan2').value);
+    } else {
+        x = Number(document.getElementById('karyawan1').value);
+        y = Number(obj.value);
+    }
+    z = x * y;
+    document.getElementById('karyawan3').value = z;
+    document.getElementById('update').innerHTML = z;
+}
+</script>
 @endsection

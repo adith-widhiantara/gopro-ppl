@@ -22,6 +22,7 @@
           <li><a class="modal-trigger" href="#masuk">Masuk</a></li>
         @else
           @if(Auth::user()->role == "sdm")
+            <li><a href="{{ url('home/product') }}">Proyek Pendanaan</a></li>
             <li><a href="#">Cari Kerja</a></li>
           @else
             <li><a href="{{ url('home/product') }}">Proyek Pendanaan</a></li>

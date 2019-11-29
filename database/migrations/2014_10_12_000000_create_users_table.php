@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('kontak')->nullable($value = true);
             $table->string('ktp')->nullable($value = true);
             $table->string('perusahaan')->nullable($value = true);
+            $table->string('norek')->nullable($value = true);
+            $table->string('bank')->nullable($value = true);
             $table->timestamp('email_verified_at');
             $table->string('password')->nullable($value = true);
             $table->rememberToken();

@@ -37,13 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function investasi()
-    {
-      return $this->hasMany(Investasi::class);
-    }
-
     public function pengajuanpetani()
     {
       return $this->hasMany(Pengajuanpetani::class);
+    }
+
+    public function investasi()
+    {
+      return $this->hasOne(Investasi::class);
     }
 }

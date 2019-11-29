@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <div class="gopro">
-      <a class="navbar-brand" href="{{ url('/') }}">GOPRO</a>
+      <a class="navbar-brand" href="{{ url('/home') }}">GOPRO</a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

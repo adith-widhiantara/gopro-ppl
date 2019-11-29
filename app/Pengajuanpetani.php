@@ -9,9 +9,9 @@ class Pengajuanpetani extends Model
     protected $fillable = [
       'user_id', 'namaproyek', 'luaslahan', 'satuan', 'jenistanaman','alamat', 'jangkawaktu', 'surattanah', 'NPWP', 'check', 'gambar1', 'gambar2', 'gambar3',
       'aberatpupuk', 'asatuanpupuk', 'atotalpupuk', 'aberatbibit', 'asatuanbibit', 'atotalbibit', 'atotaloperasional', 'ajumlahkaryawan', 'asatuankaryawan', 'atotalkaryawan', 'asewalahan', 'atotalperalatan', 'atotalsemua',
-      'bsurvivalrate', 'bsatuanbibit', 'bsatuanjadi', 'btotaljadi', 'bhargajual', 'btotalpenerimaan',
+      'bsurvivalrate', 'bsatuanjadi', 'btotaljadi', 'bhargajual', 'btotalpenerimaan',
       'clababersih', 'cbagihasil', 'cjumlah',
-      'droi'
+      'dtotalbagihasil', 'dtotalnilaiinvestasi' ,'droi'
     ];
 
     public function investasi()

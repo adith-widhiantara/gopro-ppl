@@ -52,6 +52,9 @@ Route::prefix('home/product')->group(function () {
   Route::post('create', 'ProductController@store');
   Route::get('proyeksaya', 'ProductController@proyeksaya')->name('proyeksaya');
   Route::get('proyeksaya/{pengajuanpetani}', 'ProductController@proyeksayadetail')->name('proyeksayadetail');
+
+  Route::get('done', 'PengajuanpetaniController@transfer')->name('tf');
+  Route::get('done/{investasi}', 'PengajuanpetaniController@detailtransfer')->name('detailtf');
 });
 // end Product
 
@@ -69,8 +72,19 @@ Route::prefix('home')->group(function () {
   Route::patch('datarencana/biayaoperasional/{pengajuanpetani}', 'ProductController@upbiayaoperasional');
   Route::get('datarencana/biayaoperasional/hasilproduksi/{pengajuanpetani}', 'ProductController@hasilproduksi')->name('hasilproduksi');
   Route::patch('datarencana/biayaoperasional/hasilproduksi/{pengajuanpetani}', 'ProductController@uphasilproduksi');
+  Route::get('datarencana/biayaoperasional/hasilproduksi/pendapatanperproduksi/{pengajuanpetani}', 'ProductController@pendapatanperproduksi')->name('pendapatanperproduksi');
+  Route::patch('datarencana/biayaoperasional/hasilproduksi/pendapatanperproduksi/{pengajuanpetani}', 'ProductController@uppendapatanperproduksi');
 
   Route::get('listpetani', 'UserController@listpetani')->name('listpetani');
   Route::get('detailpetani/{user}', 'UserController@detailpetani')->name('detailpetani');
 });
 // End Surveyor
+
+// SDM
+Route::prefix('home/produk')->group(function () {
+  Route::get('detail/{pengajuanpetani}', 'PengajuanpetaniController@show')->name('detailproyekinves');
+  Route::post('detail/{pengajuanpetani}', 'PengajuanpetaniController@store');
+  Route::get('detail/buktitf/{pengajuanpetani}', 'PengajuanpetaniController@buktitf')->name('buktitf');
+  Route::patch('detail/buktitf/{pengajuanpetani}', 'PengajuanpetaniController@upbuktitf');
+});
+// END SDM

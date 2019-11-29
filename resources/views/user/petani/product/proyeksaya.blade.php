@@ -121,6 +121,13 @@
                       <a href="{{ route('proyeksayadetail', $peng->id) }}" class="card-link">Klik Detail</a>
                     </div>
                   </div>
+                  @elseif($peng->check == 3)
+                  <div class="card bg-success">
+                    <div class="card-body text-white">
+                      Proyek Telah Dibayar Oleh Investor.<br>
+                      <a href="{{ route('tf', $peng->id) }}" class="card-link">Klik Detail</a>
+                    </div>
+                  </div>
                   @endif
                 </div>
               </div>

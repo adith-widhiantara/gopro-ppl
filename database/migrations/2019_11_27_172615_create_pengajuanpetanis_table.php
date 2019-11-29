@@ -42,7 +42,6 @@ class CreatePengajuanpetanisTable extends Migration
             $table->integer('atotalperalatan')->nullable($value = true);
             $table->integer('atotalsemua')->nullable($value = true);
             $table->integer('bsurvivalrate')->nullable($value = true);
-            $table->integer('bsatuanbibit')->nullable($value = true);
             $table->integer('bsatuanjadi')->nullable($value = true);
             $table->integer('btotaljadi')->nullable($value = true);
             $table->integer('bhargajual')->nullable($value = true);
@@ -50,6 +49,8 @@ class CreatePengajuanpetanisTable extends Migration
             $table->integer('clababersih')->nullable($value = true);
             $table->integer('cbagihasil')->nullable($value = true);
             $table->integer('cjumlah')->nullable($value = true);
+            $table->integer('dtotalbagihasil')->nullable($value = true);
+            $table->integer('dtotalnilaiinvestasi')->nullable($value = true);
             $table->decimal('droi', 8, 2)->nullable($value = true);
             $table->timestamps();
         });

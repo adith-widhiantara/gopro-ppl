@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $pengajuanpetani = Pengajuanpetani::all();
+      $pengajuanpetani = Pengajuanpetani::where('check', 2)->get();
       return view('user.petani.product.index', compact('pengajuanpetani'));
     }
 
@@ -164,6 +164,54 @@ class ProductController extends Controller
     {
       $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani -> id);
       return view('user.surveyor.proyek.step.hasilproduksi', compact('pengajuanpetani'));
+    }
+
+    public function uphasilproduksi(Request $request, Pengajuanpetani $pengajuanpetani)
+    {
+      $survivalrate = $request->input('survivalrate');
+      $satuanjadi = $request->input('satuanjadi');
+      $hargajual = $request->input('hargajual');
+
+      $totaljadi = $survivalrate * $pengajuanpetani -> aberatbibit / 100;
+      $totalpenerimaan = $totaljadi * $satuanjadi * $hargajual;
+      $lababersih = $totalpenerimaan - $pengajuanpetani -> atotalsemua;
+
+      Pengajuanpetani::where('id', $pengajuanpetani->id)
+            ->update([
+              'bsurvivalrate' => $survivalrate,
+              'bsatuanjadi' => $satuanjadi,
+              'btotaljadi' => $totaljadi,
+              'bhargajual' => $hargajual,
+              'btotalpenerimaan' => $totalpenerimaan,
+              'clababersih' => $lababersih,
+          ]);
+
+        return redirect()->route('pendapatanperproduksi', $pengajuanpetani->id);
+    }
+
+    public function pendapatanperproduksi(Pengajuanpetani $pengajuanpetani)
+    {
+      $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani -> id);
+      return view('user.surveyor.proyek.step.pendapatanperproduksi', compact('pengajuanpetani'));
+    }
+
+    public function uppendapatanperproduksi(Request $request, Pengajuanpetani $pengajuanpetani)
+    {
+      $bagihasil = $request->input('bagihasil');
+      $jumlah = $bagihasil/100 * $pengajuanpetani -> clababersih;
+      $totalbagihasil = $jumlah * $pengajuanpetani -> jangkawaktu;
+      $totalnilaiinvestasi = $pengajuanpetani -> atotalsemua * $pengajuanpetani -> jangkawaktu;
+      $roi = $totalbagihasil/$totalnilaiinvestasi * 100;
+
+      Pengajuanpetani::where('id', $pengajuanpetani->id)
+          ->update([
+            'check' => 2,
+            'cbagihasil' => $bagihasil,
+            'cjumlah' => $jumlah,
+            'dtotalbagihasil' => $totalbagihasil,
+            'dtotalnilaiinvestasi' => $totalnilaiinvestasi,
+            'droi' => $roi,
+          ]);
     }
 // End Surveyor
 

@@ -4,7 +4,7 @@
 
 @section('product')
 <head>
-  <link rel="stylesheet" href="{{ asset('css/petani/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/petani/petani.css') }}">
 </head>
 <!-- alert biodata -->
 @if(Auth::user()->nama == "")

@@ -4,7 +4,7 @@
 
 @section('product')
 <head>
-  <link rel="stylesheet" href="{{ asset('css/petani/index.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('css/petani/index.css') }}"> -->
 </head>
 <!-- alert biodata -->
 @if(Auth::user()->nama == "")
@@ -19,6 +19,14 @@
   </div>
 @endif
 <!-- alert biodata -->
+
+@if (session('status'))
+<div style="margin-top: 10px;" class="container">
+  <div class="alert alert-primary" role="alert">
+    {{ session('status') }}
+  </div>
+</div>
+@endif
 
 @if(Auth::user()->role == "petani")
 <div style="margin-top: 50px;" class="container">

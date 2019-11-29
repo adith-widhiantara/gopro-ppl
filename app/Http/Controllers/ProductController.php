@@ -102,7 +102,8 @@ class ProductController extends Controller
       $pengajuanpetani->gambar2 = $nama_file4;
       $pengajuanpetani->gambar3 = $nama_file5;
       Auth::user()->pengajuanpetani()->save($pengajuanpetani);
-      return redirect('home/product');
+
+      return redirect('home/product')->with('status', 'Data Berhasil Ditambahkan');
     }
 
 // Surveyor
@@ -126,7 +127,7 @@ class ProductController extends Controller
 
     public function upbiayaoperasional(Request $request, Pengajuanpetani $pengajuanpetani)
     {
-      
+
 
       Pengajuanpetani::where('id', $pengajuanpetani->id)
             ->update([

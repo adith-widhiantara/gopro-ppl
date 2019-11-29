@@ -1,5 +1,25 @@
 @extends('user.surveyor.proyek.baseproyek')
 
+@section('pageheader')
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title">Biaya Operasional</h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                        <li class="breadcrumb-item">Data Rencana Proyek</li>
+                        <li class="breadcrumb-item">Detail Data Rencana</li>
+                        <li class="breadcrumb-item">Biaya Operasional</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('proyek')
 <div class="card-title">
   <h3>Biaya Operasional</h3>
@@ -11,7 +31,10 @@
     <div class="row">
       <div class="col-4">
         <label for="num1">Berat Pupuk (Kg)</label>
-        <input type="number" class="form-control" id="tb1" name="beratpupuk" onkeyup="calc(this)">
+        <input type="number" class="@error('beratpupuk') is-invalid @enderror form-control " id="tb1" name="beratpupuk" onkeyup="calc(this)" value="{{ $pengajuanpetani->aberatpupuk }}">
+        @error('beratpupuk')
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
       </div>
       <div class="col-4">
         <label for="num2">Harga Pupuk per Kg</label>

@@ -2,7 +2,24 @@
 
 @section('title', 'Surveyor | GOPRO')
 
-@section('titlepageheader', 'Detail Rencana Proyek')
+@section('pageheader')
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title">Detail Data Rencana</h2>
+            <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                        <li class="breadcrumb-item">Data Rencana Proyek</li>
+                        <li class="breadcrumb-item active" aria-current="page">Detail Data Rencana</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
 @section('surveyor')
 <div class="card">

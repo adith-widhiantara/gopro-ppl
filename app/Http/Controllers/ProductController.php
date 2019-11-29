@@ -122,12 +122,22 @@ class ProductController extends Controller
     public function biayaoperasional(Pengajuanpetani $pengajuanpetani)
     {
       $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani->id);
-      return view('user.surveyor.proyek.biayaoperasional', compact('pengajuanpetani'));
+      return view('user.surveyor.proyek.step.biayaoperasional', compact('pengajuanpetani'));
     }
 
     public function upbiayaoperasional(Request $request, Pengajuanpetani $pengajuanpetani)
     {
-
+      $this->validate($request, [
+        'beratpupuk' => 'required',
+        'satuanpupuk' => 'required',
+        'beratbibit' => 'required',
+        'satuanbibit' => 'required',
+        'totaloperasional' => 'required',
+        'jumlahkaryawan' => 'required',
+        'satuankaryawan' => 'required',
+        'sewalahan' => 'required',
+        'totalperalatan' => 'required',
+      ]);
 
       Pengajuanpetani::where('id', $pengajuanpetani->id)
             ->update([
@@ -147,7 +157,13 @@ class ProductController extends Controller
             'atotalsemua' => $request -> totalperalatan + $request -> sewalahan + $request -> beratpupuk * $request -> satuanpupuk + $request -> beratbibit * $request -> satuanbibit + $request -> totaloperasional + $request -> jumlahkaryawan * $request -> satuankaryawan,
           ]);
 
-          return redirect()->route('profile', [$user]);
+          return redirect()->route('hasilproduksi', $pengajuanpetani->id);
+    }
+
+    public function hasilproduksi(Pengajuanpetani $pengajuanpetani)
+    {
+      $pengajuanpetani = Pengajuanpetani::findOrFail($pengajuanpetani -> id);
+      return view('user.surveyor.proyek.step.hasilproduksi', compact('pengajuanpetani'));
     }
 // End Surveyor
 

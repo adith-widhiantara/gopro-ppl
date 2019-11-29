@@ -67,6 +67,8 @@ Route::prefix('home')->group(function () {
   Route::get('datarencana/{pengajuanpetani}', 'ProductController@detailproyek')->name('detailproyek');
   Route::get('datarencana/biayaoperasional/{pengajuanpetani}', 'ProductController@biayaoperasional')->name('biayaoperasional');
   Route::patch('datarencana/biayaoperasional/{pengajuanpetani}', 'ProductController@upbiayaoperasional');
+  Route::get('datarencana/biayaoperasional/hasilproduksi/{pengajuanpetani}', 'ProductController@hasilproduksi')->name('hasilproduksi');
+  Route::patch('datarencana/biayaoperasional/hasilproduksi/{pengajuanpetani}', 'ProductController@uphasilproduksi');
 
   Route::get('listpetani', 'UserController@listpetani')->name('listpetani');
   Route::get('detailpetani/{user}', 'UserController@detailpetani')->name('detailpetani');

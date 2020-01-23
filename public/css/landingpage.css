@@ -20,7 +20,7 @@ body{
 }
 
 .navnav.solid {
-  background-color: #4caf50;
+  background-color: #000000;
   transition: background-color 1s ease 0s;
   box-shadow: 0 0 4px grey;
 }
